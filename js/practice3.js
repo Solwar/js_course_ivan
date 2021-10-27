@@ -55,9 +55,11 @@ function detectPersonalLevel () {
 detectPersonalLevel();
 
 // console.log(personalMovieDB);
-
-function showMyDB () {
-    if (personalMovieDB.privat === false) {
+// hidden это шаблон поведения функции
+function showMyDB (hidden) {
+    // если св-во privat == false , !  превращаем его в true и распечатываем
+    // privat = false если наша БД не является скрытой
+    if (!hidden) {
         console.log(personalMovieDB);  
     }
 }
@@ -65,18 +67,11 @@ function showMyDB () {
 
 
 function writeYourGenres () {
-    let myLikedGenre;
-    for (let index = 0; index < 3; index++) {
-
-        myLikedGenre = prompt(`Ваш любимый жанр под номером ${index+1}?`, '');
-        while (myLikedGenre == "" || myLikedGenre == null) {
-            myLikedGenre = prompt(`Ваш любимый жанр под номером ${index+1}?`, ''); 
-        }
-        personalMovieDB.genres[index] = myLikedGenre;
-
+    // let myLikedGenre;
+    for (let index = 1; index <= 3; index++) {
+        personalMovieDB.genres[index-1] =  prompt(`Ваш любимый жанр под номером ${index}?`);
     }
-
 }
 
 writeYourGenres();
-showMyDB();
+showMyDB(personalMovieDB.privat);
