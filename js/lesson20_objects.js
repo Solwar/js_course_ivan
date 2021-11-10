@@ -66,3 +66,21 @@ options.makeTest(); //Test
 
 console.log(Object.keys(options)); //[ 'name', 'width', 'height', 'colors' ]
 console.log(Object.keys(options).length); // сама длинна массива
+
+
+
+let user = {
+    name: "Ivan",
+    surname: "Ivanov",
+
+    get fullName() {
+        return `${this.name} ${this.surname}`;
+    },
+    set fullName(value) {
+        [this.name, this.surname] = value.split(" ");
+    }
+};
+
+console.log(user.fullName);
+user.fullName = "Galina Petrova";
+console.log(user.fullName);
