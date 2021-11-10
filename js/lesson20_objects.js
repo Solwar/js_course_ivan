@@ -10,9 +10,15 @@ const options = {
     colors: {
         border: 'black',
         bg: 'red'
+    },
+    // создаем свой метод:
+    makeTest: function() {
+        console.log("Test");
     }
 };
 
+// вызываем наш метод:
+options.makeTest(); //Test
 
 // console.log(options.name);
 
@@ -29,28 +35,34 @@ const options = {
 // перебор объектов
 
 // 
-let counter = 0;
+// let counter = 0;
 
-for (let key in options){
-    if (typeof(options[key]) === 'object'){
-        // то перебираем colors
-        for (let i in options[key]) {
-            console.log(`Св-во: ${i}, имеет значение ${options[key][i]}`);
-            // объекты со всех уровней (толькео подуровневые св-ва)
-            // counter++;
-        }
-    } else {
-        console.log(`Св-во: ${key}, имеет значение ${options[key]}`);
-        // объекты со всех уровней (верхний уровень без учета самого colors)
-        // counter++;
-    }
-    // кол-во верхнеуровневых объектов:
-    counter++; //4
-}
-// вывести кол-во объектов в массиве
-console.log(counter);
-// сейчас все значения выводятся ввиде строк, [object Object] 
-// это строковое представление объекта (jS не может вывести корректно в строку)
+// for (let key in options){
+//     if (typeof(options[key]) === 'object'){
+//         // то перебираем colors
+//         for (let i in options[key]) {
+//             console.log(`Св-во: ${i}, имеет значение ${options[key][i]}`);
+//             // объекты со всех уровней (толькео подуровневые св-ва)
+//             // counter++;
+//         }
+//     } else {
+//         console.log(`Св-во: ${key}, имеет значение ${options[key]}`);
+//         // объекты со всех уровней (верхний уровень без учета самого colors)
+//         // counter++;
+//     }
+//     // кол-во верхнеуровневых объектов:
+//     counter++; //4
+// }
+// // вывести кол-во объектов в массиве
+// console.log(counter);
+// // сейчас все значения выводятся ввиде строк, [object Object] 
+// // это строковое представление объекта (jS не может вывести корректно в строку)
 
 
-// объекты нельзя итерировать через of
+// // объекты нельзя итерировать через of
+
+
+// метод object.keys берет из объекта все ключи и создает из них массив
+
+console.log(Object.keys(options)); //[ 'name', 'width', 'height', 'colors' ]
+console.log(Object.keys(options).length); // сама длинна массива
